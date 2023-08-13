@@ -22,7 +22,7 @@ function getTempFilePath($FileName) {
 }
 
 function LoadTempFile($FileName) {
-	$fn = getTempFilePath($FileName)."/temp.dat";
+	$fn = getTempFilePath($FileName)."/tempdata.tmp";
 	if (file_exists($fn)) {
 		$result = unserialize(file_get_contents($fn));
 	}
@@ -41,5 +41,5 @@ function SaveTempFile($Data) {
 	if ((! is_dir($fn)) && (! mkdir($fn,0777,true))) {
 		die("Can't store temporary data ! (storrage error)");
 	}
-	file_put_contents($fn."/temp.dat", serialize($Data));
+	file_put_contents($fn."/tempdata.tmp", serialize($Data));
 }
