@@ -19,5 +19,3 @@ ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 COMMIT;
-
-alter table users add comp blob not null default '';
