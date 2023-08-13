@@ -95,3 +95,6 @@ _PRIVE/
 # don't publish parameters files in repositories (prod nor dev)
 config-dev.inc.php
 config-release.inc.php
+
+# cache and temporary files
+*.tmp
