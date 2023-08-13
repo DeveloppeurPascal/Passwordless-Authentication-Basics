@@ -1,35 +1,36 @@
-# Delphi-Projects-Template
+# Passwordless Authentication Basics
 
 [This page in english.](README.md)
 
-Un modèle de dépôt git pour mes projets Delphi (ou autres).
+Base de travail pour prendre en charge un espace membre sans mot de passe sur un site Internet.
 
-Ce template est distribué sous licence MIT. La licence AGPL est pour les projets que je crée à partir de ce template de dépôt de code. Utilisez la licence que vous voulez si vous utilisez ce template.
+L'authentification se fera à partir d'une adresse email (comme le font beaucoup (trop) de sites web) ou d'un numéro de téléphone (comme le fait TikTok).
 
-Ce dépôt de code contient un projet développé en langage Pascal Objet sous Delphi. Vous ne savez pas ce qu'est Dephi ni où le télécharger ? Vous en saurez plus [sur ce site web](https://delphi-resources.developpeur-pascal.fr/).
+En cas d'accès par email, une URL unique à durée limitée est envoyée par courriel. La visite de cette URL active la connexion (et l'inscription) à l'espace membre pour cette adresse email. L'adresse n'est valide qu'une seule fois.
+
+En cas d'accès par numéro de téléphone, un code OTP[^1] sera envoyé par texto (par l'intermédiaire d'APIs en ligne permettant l'émission de SMS). La connexion (et inscription) à l'espace membre se fera par resaisie du numéro. Chaque code envoyé est valide durant quelques minutes et ne peut être utilisé qu'une seule fois.
+
+**Alors que l'authentification sans mot de passe par texto est relativement intime (il faut le téléphone de l'utilisateur), l'authentification sans mot de passe par email est clairement une technique à éviter car c'est la première chose que piratent les hackers. Même si techniquement ce dépôt est fonctionnel, je n'en recommande pas l'utilisation lorsque des données privées, personnelles ou sensibles sont diponibles post authentification.**
+
+[^1] OTP = one time password, code à usage unique
 
 ## Installation
 
-Pour télécharger ce projet il est recommandé de passer par "git" mais vous pouvez aussi télécharger un ZIP directement depuis [son dépôt GitHub](https://github.com/DeveloppeurPascal/XXXXXXXXXX).
+Pour télécharger ce projet il est recommandé de passer par "git" mais vous pouvez aussi télécharger un ZIP directement depuis [son dépôt GitHub](https://github.com/DeveloppeurPascal/Passwordless-Authentication-Basics).
 
 **Attention :** si le projet utilise des dépendances sous forme de sous modules ils seront absents du fichier ZIP. Vous devrez les télécharger à la main.
 
-## Dépendances
-
-Ce dépôt de code dépend des dépôts suivants :
-
-* project 1
-* project 2
+Un fichier SQL de base de données contient la description de la table "users" utilisée par les programmes PHP. Vous devez l'ajouter à votre base de données et configurer les paramètres du programmes présents dans le fichier ./src/protected/config-dist.inc.php en le copiant comme c'est expliqué dedans.
 
 ## Comment demander une nouvelle fonctionnalité, signaler un bogue ou une faille de sécurité ?
 
-Si vous voulez une réponse du propriétaire de ce dépôt la meilleure façon de procéder pour demander une nouvelle fonctionnalité ou signaler une anomalie est d'aller sur [le dépôt de code sur GitHub](https://github.com/DeveloppeurPascal/XXXXXXXXXX) et [d'ouvrir un ticket](https://github.com/DeveloppeurPascal/XXXXXXXXXX/issues).
+Si vous voulez une réponse du propriétaire de ce dépôt la meilleure façon de procéder pour demander une nouvelle fonctionnalité ou signaler une anomalie est d'aller sur [le dépôt de code sur GitHub](https://github.com/DeveloppeurPascal/Passwordless-Authentication-Basics) et [d'ouvrir un ticket](https://github.com/DeveloppeurPascal/Passwordless-Authentication-Basics/issues).
 
 Si vous avez trouvé une faille de sécurité n'en parlez pas en public avant qu'un correctif n'ait été déployé ou soit disponible. [Contactez l'auteur du dépôt en privé](https://developpeur-pascal.fr/nous-contacter.php) pour expliquer votre trouvaille.
 
 Vous pouvez aussi cloner ce dépôt de code et participer à ses évolutions en soumettant vos modifications si vous le désirez. Lisez les explications dans le fichier [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Modèle de licence double (seulement pour mes projets, pas pour ce modèle de dépôt de code)
+## Modèle de licence double
 
 Ce projet est distribué sous licence [AGPL 3.0 ou ultérieure] (https://choosealicense.com/licenses/agpl-3.0/).
 
