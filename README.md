@@ -4,15 +4,11 @@
 
 Basis for supporting a password-free member area on a website.
 
-Authentication will be based on an email address (as many (too many) websites do) or a telephone number (as TikTok does).
+Authentication will be based on an email address (as many (too many) websites do).
 
 In the case of email access, a unique time-limited URL is sent by email. Visiting this URL activates the connection (and registration) to the member area for this email address. The address is valid only once.
 
-In the case of access by telephone number, an OTP[^1] code will be sent by text message (via online APIs enabling SMS transmission). Connection (and registration) to the member area will be done by re-entering the number. Each code sent is valid for a few minutes and can only be used once.
-
-**While password-less authentication by text message is relatively intimate (you need user's phone), password-less authentication by email is clearly a technique to be avoided, as it's the first thing hackers hack. Even if this repository is technically functional, I don't recommend using it when private, personal or sensitive data is available after authentication.**
-
-[^1] OTP = one-time password
+**Password-less authentication by email is clearly a technique to be avoided, as it's the first thing hackers hack. Even if this repository is technically functional, I don't recommend using it when private, personal or sensitive data is available after authentication.**
 
 ## Install
 

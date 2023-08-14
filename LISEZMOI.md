@@ -4,15 +4,11 @@
 
 Base de travail pour prendre en charge un espace membre sans mot de passe sur un site Internet.
 
-L'authentification se fera à partir d'une adresse email (comme le font beaucoup (trop) de sites web) ou d'un numéro de téléphone (comme le fait TikTok).
+L'authentification se fera à partir d'une adresse email (comme le font beaucoup (trop) de sites web).
 
 En cas d'accès par email, une URL unique à durée limitée est envoyée par courriel. La visite de cette URL active la connexion (et l'inscription) à l'espace membre pour cette adresse email. L'adresse n'est valide qu'une seule fois.
 
-En cas d'accès par numéro de téléphone, un code OTP[^1] sera envoyé par texto (par l'intermédiaire d'APIs en ligne permettant l'émission de SMS). La connexion (et inscription) à l'espace membre se fera par resaisie du numéro. Chaque code envoyé est valide durant quelques minutes et ne peut être utilisé qu'une seule fois.
-
-**Alors que l'authentification sans mot de passe par texto est relativement intime (il faut le téléphone de l'utilisateur), l'authentification sans mot de passe par email est clairement une technique à éviter car c'est la première chose que piratent les hackers. Même si techniquement ce dépôt est fonctionnel, je n'en recommande pas l'utilisation lorsque des données privées, personnelles ou sensibles sont diponibles post authentification.**
-
-[^1] OTP = one time password, code à usage unique
+**L'authentification sans mot de passe par email est clairement une technique à éviter car c'est la première chose que piratent les hackers. Même si techniquement ce dépôt est fonctionnel, je n'en recommande pas l'utilisation lorsque des données privées, personnelles ou sensibles sont diponibles post authentification.**
 
 ## Installation
 
