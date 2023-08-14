@@ -38,7 +38,7 @@
 			if (! is_object($db)) {
 				$error = true;
 				$error_message .= "Database access error. Contact the administrator.\n";
-				$SignupStatus = CPwdLessAuthForm;
+				$PwdLessAuthStatus = CPwdLessAuthForm;
 			}
 			else {
 				$qry = $db->prepare("select id, enabled from users where email=:email limit 0,1");
@@ -46,7 +46,7 @@
 				if ((false !== ($rec = $qry->fetch(PDO::FETCH_OBJ))) && (0 == $rec->enabled)) {
 					$error = true;
 					$error_message .= "Access denied.\n";
-					$SignupStatus = CPwdLessAuthForm;
+					$PwdLessAuthStatus = CPwdLessAuthForm;
 				}
 				if (! $error) {
 					$salt = getNewIdString(mt_rand(5,25));
@@ -103,7 +103,7 @@
 									if (0 == $rec->enabled) {
 										$error = true;
 										$error_message .= "Access denied.\n";
-										$SignupStatus = CPwdLessAuthForm;
+										$PwdLessAuthStatus = CPwdLessAuthForm;
 									}
 									$id = $rec->id;
 								}
@@ -112,7 +112,7 @@
 									if (! $qry->execute(array(":e" => $email, ":ci" => $_SERVER["REMOTE_ADDR"], ":cdt" => date("YmdHis")))) {
 										$error = true;
 										$error_message .= "Can't add this user in the database.\n";
-										$SignupStatus = CPwdLessAuthForm;
+										$PwdLessAuthStatus = CPwdLessAuthForm;
 									}
 									else {
 										$id = $db->lastInsertId();
@@ -134,7 +134,7 @@
 			if (! $error) {
 				$error = true;
 				$error_message .= "Access denied.\n";
-				$SignupStatus = CPwdLessAuthForm;
+				$PwdLessAuthStatus = CPwdLessAuthForm;
 			}
 		}
 	}
